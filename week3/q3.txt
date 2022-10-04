@@ -1,0 +1,21 @@
+Write MIPS directives to represent the following C variables (if you were asked to put them in the data segment):
+
+a. int u
+	.space 4
+
+b. int v = 42
+	.word 42
+
+c. char w;
+	.space 1
+
+d. char x = 'a'
+	.byte 'a'
+
+	.align 3
+
+e. double y;
+	.space 8
+
+f. int z[20]
+	.space	4 * 20
