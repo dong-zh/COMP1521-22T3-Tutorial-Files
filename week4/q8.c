@@ -32,7 +32,7 @@ point2D_t my_points[N_POINTS] = {
     {4, 4},
 };
 
-int main() {
+int main(void) {
     // Loop over all elements, and print their data
     for (int i = 0; i < N_POINTS; i++) {
         int row = my_points[i].row;
@@ -42,8 +42,3 @@ int main() {
     }
     return 0;
 }
-
-
-if (prime[i])
-
-if (prime[i] != 0)
