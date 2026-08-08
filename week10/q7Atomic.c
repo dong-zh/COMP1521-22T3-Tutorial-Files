@@ -10,7 +10,7 @@
 #define SLEEP_NANOSECOND(n) (nanosleep(&(struct timespec){.tv_nsec = n}, NULL))
 
 // Global variable
-atomic_int globalTotal = 0;
+atomic_int bankAccount = 0;
 
 void *add5k(void *data);
 
@@ -37,7 +37,7 @@ int main(void)
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
 
-	printf("Global variable is %d\n", globalTotal);
+	printf("Global variable is %d\n", bankAccount);
 
 	return 0;
 }
@@ -45,7 +45,7 @@ int main(void)
 void *add5k(void *data)
 {
 	for (int i = 0; i < 5000; i++) {
-		globalTotal++;
+		bankAccount++;
 		// globalTotal += 1 also works
 		// globalTotal = globalTotal + 1 does *not* work!
 

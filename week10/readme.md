@@ -4,7 +4,7 @@ The key thing to understand with concurrency is that, the OS could switch to ano
 
 ## Concurrency vs Parallelism
 
-See [here](q2.md) for more information.
+See [here](q3.md) for more information.
 
 ## Mutual Exclusion
 

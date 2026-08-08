@@ -13,7 +13,7 @@
 pthread_mutex_t globalMutex = PTHREAD_MUTEX_INITIALIZER;
 
 // Global variable
-int globalTotal = 0;
+int bankAccount = 0;
 
 void *add5k(void *data);
 
@@ -40,7 +40,7 @@ int main(void)
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
 
-	printf("Global variable is %d\n", globalTotal);
+	printf("Global variable is %d\n", bankAccount);
 
 
 	return 0;
@@ -51,7 +51,8 @@ void *add5k(void *data)
 	for (int i = 0; i < 5000; i++) {
 		// Mutex lock
 		pthread_mutex_lock(&globalMutex);
-		globalTotal++;
+		// Critical section
+		bankAccount++;
 		// Mutex unlock
 		pthread_mutex_unlock(&globalMutex);
 

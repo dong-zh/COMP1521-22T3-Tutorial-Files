@@ -10,15 +10,12 @@
 #define SLEEP_NANOSECOND(n) (nanosleep(&(struct timespec){.tv_nsec = n}, NULL))
 
 // Global variable
-atomic_int globalTotal = 0;
-atomic_int globalTotal2 = 0;
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+int bankAccount = 0;
 
 void *add5k(void *data);
 
 int main(void)
 {
-
 	pthread_t thread1, thread2;
 
 	// Create thread 1
@@ -40,7 +37,7 @@ int main(void)
 	pthread_join(thread1, NULL);
 	pthread_join(thread2, NULL);
 
-	printf("Global variable is %d\n", globalTotal);
+	printf("Bank account is %d\n", bankAccount);
 
 	return 0;
 }
@@ -48,11 +45,7 @@ int main(void)
 void *add5k(void *data)
 {
 	for (int i = 0; i < 5000; i++) {
-		pthread_mutex_lock(&mutex);
-		globalTotal++;
-		globalTotal2++;
-		// globalTotal = globalTotal + 1;
-		pthread_mutex_unlock(&mutex);
+		bankAccount++;
 
 		SLEEP_NANOSECOND(1);
 	}
